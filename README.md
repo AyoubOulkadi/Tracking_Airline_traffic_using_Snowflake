@@ -6,21 +6,47 @@ This project revolves around building a data pipeline that efficiently processes
 <h2> 1. Flask API </h2>
 A Flask API is developed to handle HTTP requests.
 This API exposes endpoints for data retrieval and processing.
-<a target="_blank" href="https://imageupload.io/TYnz3P02PH02dNM"><img  src="https://imageupload.io/ib/V4BTZYTeQXBxMzq_1693914259.jpg" alt="output producer.JPG"/></a>
 
-<h2> 2. Data Retrieval </h2>
-The Flask API retrieves data from various sources through HTTP requests.
-These sources may include web services, databases, or external data providers.
+<a target="_blank" href="https://imageupload.io/QZ47yHndhlI5VbN"><img  src="https://imageupload.io/ib/oEEdqIEkobwnYW5_1693914656.jpg" alt="API creation.JPG"/></a>
 
-3. Data Processing
-Data obtained from external sources is processed within the Flask API.
-Processing may encompass data cleaning, aggregation, or any necessary transformations.
-4. AWS S3 Data Storage
-Processed data is securely stored in AWS S3, a versatile and reliable cloud storage service.
-AWS S3 buckets are used for organized and secure data storage.
-5. Snowflake Data Transformations
+<h2> 2. Data Retrieval with the producer script  </h2>
+We retrieve the data from the API created by a producer script
+
+<a target="_blank" href="https://imageupload.io/WvHB7taASETCwSM"><img  src="https://imageupload.io/ib/T0Xs51DzB1Np0U5_1693914900.jpg" alt="output producer.JPG"/></a>
+
+
+<h4> Store the data after being consumed to S3 Bucket </h4>
+After consuming the data from the producer, we should store it a bucket in AWS S3 supposed to be a data lake of our project 
+
+<a target="_blank" href="https://imageupload.io/22oDDqZ37M8VTjt"><img  src="https://imageupload.io/ib/f5eyc5yiugK5NKc_1693915292.jpg" alt="consumer.JPG"/></a>5. 
+
+and this is the output of our consumer script : 
+<a target="_blank" href="https://imageupload.io/8PW3PMXHtWGcLTA"><img  src="https://imageupload.io/ib/tGLihuc9PBnUfim_1693915391.jpg" alt="output consumer.JPG"/></a>
+
+Then we see the the data is stored in our S3 bucket 
+
+<a target="_blank" href="https://imageupload.io/hDP0X2ZeAYYQV1S"><img  src="https://imageupload.io/ib/BXNRs1PjgWN4C5j_1693915452.jpg" alt="data stored in AWS.JPG"/></a>
+
+<h5> Snowflake Data Transformations </h5>
 Data is ingested into Snowflake, a cloud-based data warehousing platform.
 Snowflake is employed for advanced data transformations, SQL queries, and data analytics.
+First, we create the storage integration 
+
+<a target="_blank" href="https://imageupload.io/SJON0cSkGNizTxT"><img  src="https://imageupload.io/ib/fhH3XVZIMIQtzjU_1693915500.jpg" alt="Creation Storage integration.JPG"/></a>
+Then, we can see the description of our external storage creation 
+
+<a target="_blank" href="https://imageupload.io/wx9YYkGbIzrc9VR"><img  src="https://imageupload.io/ib/MsNXIsGaat1xTNT_1693915860.jpg" alt="2nd command of description.JPG"/></a>
+
+Then, we create a csv file format 
+<a target="_blank" href="https://imageupload.io/lnV2Qt3s3akR5xo"><img  src="https://imageupload.io/ib/1Ix01aRJuJDOf8B_1693915551.png" alt="create of csv file_format.png"/></a>
+
+Then we create our table : 
+<a target="_blank" href="https://imageupload.io/ttg5fYiAILEfJMh"><img  src="https://imageupload.io/ib/o7AQ0qDYYYUiTxM_1693915598.png" alt="Airline_sample_table creation .png"/></a>
+After this, we will retrieve our data 
+
+<a target="_blank" href="https://imageupload.io/AQegCYfLE33ZZXq"><img  src="https://imageupload.io/ib/Gg5nCRlwi1O9lSF_1693915634.png" alt="Sample of our data.png"/></a>
 6. Export to Power BI
 The transformed data is exported from Snowflake and integrated with Power BI.
-Power BI is employed for data visualization, report generation, and interactive dashboard creation.
+We can see that the connection between PowerBI and Snwoflake had been done successfully 
+
+<a target="_blank" href="https://imageupload.io/LK4skyIq9l20TbV"><img  src="https://imageupload.io/ib/W2FlOQuMIrcFv4Z_1693915940.jpg" alt="connection avec POWERBI aprs DA.JPG"/></a>
