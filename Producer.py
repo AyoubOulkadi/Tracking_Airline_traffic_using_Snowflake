@@ -3,6 +3,9 @@ import kafka
 import json
 import time
 import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
 url = 'http://127.0.0.1:5000/data?rows=1400'  
 
 response = requests.get(url)
@@ -17,7 +20,7 @@ else:
     print('Error:', response.status_code)
 
 # Define Kafka broker address and topic name
-KAFKA_BROKER = 'localhost:9092'
+KAFKA_BROKER = os.getenv("KAFKA_HOST") + ':' + '9092'
 KAFKA_TOPIC = 'port-data'
 
 # Create a KafkaProducer instance

@@ -1,14 +1,25 @@
 from flask import Flask, jsonify, request
 import snowflake.connector
 from flask_cors import CORS
+import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
+account=os.getenv('account'),
+warehouse=os.getenv('warehouse'),
+database=os.getenv('database'),
+schema=os.getenv('schema'),
+role=os.getenv('role'),
+user=os.getenv('user'),
+password=os.getenv('password'),
 snowflake_config = {
-    'account': 'rsrnnfw-hr03420',
-    'warehouse': 'COMPUTE_WH',
-    'database': 'AIRLINE',
-    'schema': 'AIRLINE_SCHEMA',
-    'role': 'ACCOUNTADMIN',
-    'user': 'mehdibahou',
-    'password': 'Ma123456789@A'
+    'account':account,
+    'warehouse':warehouse,
+    'database':database,
+    'schema':schema,
+    'role':role,
+    'user':user,
+    'password':password
 }
 
 app = Flask(__name__)
@@ -134,6 +145,21 @@ def get_data():
         import traceback
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
+
+# Load CSV data into memory
+csv_data = pd.read_csv('/home/ayoub/Airline_project/ARILINE_DATA.csv')
+
+@app.route('/data', methods=['GET'])
+def get_data():
+    rows = int(request.args.get('rows', len(csv_data)))
+    selected_features = request.args.get('features', None)
+
+    filtered_data = csv_data.head(rows)
+    if selected_features:
+        selected_columns = selected_features.split(',')
+        filtered_data = filtered_data[selected_columns]
+
+    return jsonify(filtered_data.to_dict(orient='records'))
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,14 +3,17 @@ import pandas as pd
 from kafka import KafkaConsumer
 import boto3
 from io import StringIO
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Define Kafka broker address and topic name
-KAFKA_BROKER = 'localhost:9092'
+KAFKA_BROKER = os.getenv("KAFKA_HOST") + ':' + '9092'
 KAFKA_TOPIC = 'port-data'
 
 # AWS S3 credentials and bucket information
-AWS_ACCESS_KEY_ID = 'YOUR_ACCESS_KEY_ID'
-AWS_SECRET_ACCESS_KEY = 'YOUR_SECRET_ACCESS_KEY'
+AWS_ACCESS_KEY_ID = os.getenv('ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('SECRET_ACCESS_KEY')
 AWS_BUCKET_NAME = 'airline2023'
 S3_PREFIX = 'load/'  # Prefix for S3 object keys
 
