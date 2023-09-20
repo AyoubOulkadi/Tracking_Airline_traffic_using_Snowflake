@@ -4,7 +4,7 @@
 This project revolves around building a data pipeline that efficiently processes, stores, transforms, and visualizes data. It utilizes a Flask-based API for data retrieval and a combination of AWS S3, Snowflake, and Power BI for data storage, transformation, and visualization.
 
 <h2>Project architecture </h2>
-<a target="_blank" href="https://imageupload.io/NolfUsQhJXjh9dv"><img  src="https://imageupload.io/ib/PFi6gZSsLLKb92u_1694090876.jpg" alt="Arc.JPG"/></a>
+<a target="_blank" href="https://imageupload.io/vOXVkQkE5QiQlDi"><img  src="https://imageupload.io/ib/x9uPxP461Z80xNO_1695198211.jpg" alt="Architecture.JPG"/></a>
 
 <h2> 1. Flask API </h2>
 A Flask API is developed to handle HTTP requests.
@@ -26,7 +26,7 @@ After consuming the data from the producer, we should store it a bucket in AWS S
 and this is the output of our consumer script : 
 <a target="_blank" href="https://imageupload.io/8PW3PMXHtWGcLTA"><img  src="https://imageupload.io/ib/tGLihuc9PBnUfim_1693915391.jpg" alt="output consumer.JPG"/></a>
 
-Then we see the the data is stored in our S3 bucket 
+<h5>Then we see the the data is stored in our S3 bucket </h5>
 
 <a target="_blank" href="https://imageupload.io/hDP0X2ZeAYYQV1S"><img  src="https://imageupload.io/ib/BXNRs1PjgWN4C5j_1693915452.jpg" alt="data stored in AWS.JPG"/></a>
 
@@ -40,15 +40,18 @@ Then, we can see the description of our external storage creation
 
 <a target="_blank" href="https://imageupload.io/wx9YYkGbIzrc9VR"><img  src="https://imageupload.io/ib/MsNXIsGaat1xTNT_1693915860.jpg" alt="2nd command of description.JPG"/></a>
 
-Then, we create a csv file format 
+<h5>Then, we create a csv file format</h5> 
 <a target="_blank" href="https://imageupload.io/lnV2Qt3s3akR5xo"><img  src="https://imageupload.io/ib/1Ix01aRJuJDOf8B_1693915551.png" alt="create of csv file_format.png"/></a>
 
-Then we create our table : 
+<h5>Then we create our table : </h5> 
 <a target="_blank" href="https://imageupload.io/ttg5fYiAILEfJMh"><img  src="https://imageupload.io/ib/o7AQ0qDYYYUiTxM_1693915598.png" alt="Airline_sample_table creation .png"/></a>
 After this, we will retrieve our data 
 
+
 <a target="_blank" href="https://imageupload.io/AQegCYfLE33ZZXq"><img  src="https://imageupload.io/ib/Gg5nCRlwi1O9lSF_1693915634.png" alt="Sample of our data.png"/></a>
-6. Export to Power BI
+
+<h5>6. Export to Power BI</h5>
+
 The transformed data is exported from Snowflake and integrated with Power BI.
 We can see that the connection between PowerBI and Snwoflake had been done successfully 
 
