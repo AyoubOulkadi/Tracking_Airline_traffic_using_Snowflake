@@ -4,7 +4,7 @@
 This project revolves around building a data pipeline that efficiently processes, stores, transforms, and visualizes data. It utilizes a Flask-based API for data retrieval and a combination of AWS S3, Snowflake, and Power BI for data storage, transformation, and visualization.
 
 <h2>Project architecture </h2>
-<a target="_blank" href="https://imageupload.io/vOXVkQkE5QiQlDi"><img  src="https://imageupload.io/ib/x9uPxP461Z80xNO_1695198211.jpg" alt="Architecture.JPG"/></a>
+<a target="_blank" href="https://imageupload.io/5XfTea2gR44sBBM"><img  src="https://imageupload.io/ib/pph8frXS5UekegP_1695198757.jpg" alt="arc.JPG"/></a>
 
 <h2> 1. Flask API </h2>
 A Flask API is developed to handle HTTP requests.
