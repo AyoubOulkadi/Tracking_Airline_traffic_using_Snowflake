@@ -5,25 +5,27 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 load_dotenv()
-account=os.getenv('account'),
-warehouse=os.getenv('warehouse'),
-database=os.getenv('database'),
-schema=os.getenv('schema'),
-role=os.getenv('role'),
-user=os.getenv('user'),
-password=os.getenv('password'),
+account = os.getenv('account'),
+warehouse = os.getenv('warehouse'),
+database = os.getenv('database'),
+schema = os.getenv('schema'),
+role = os.getenv('role'),
+user = os.getenv('user'),
+password = os.getenv('password'),
 snowflake_config = {
-    'account':account,
-    'warehouse':warehouse,
-    'database':database,
-    'schema':schema,
-    'role':role,
-    'user':user,
-    'password':password
+    'account': account,
+    'warehouse': warehouse,
+    'database': database,
+    'schema': schema,
+    'role': role,
+    'user': user,
+    'password': password
 }
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+
 @app.route('/get_total_pages', methods=['GET'])
 def get_total_pages():
     try:
@@ -37,7 +39,7 @@ def get_total_pages():
         query = "SELECT COUNT(*) FROM Airline_sample_table WHERE 1=1"
 
         aller_type = request.args.get('aller_type')
-        
+
         if aller_type:
             query += f" AND AIRLINE_ALLER = '{aller_type}'"
 
@@ -71,6 +73,7 @@ def get_total_pages():
         import traceback
         traceback.print_exc()  # Print the traceback for more details
         return jsonify({'error': str(e)}), 500
+
 
 @app.route('/get_data', methods=['GET'])
 def get_data():
@@ -121,16 +124,16 @@ def get_data():
                 "HOR_ARRI": str(row[3]),
                 "PRICE": str(row[4]),
                 "ALLER_TYPE": str(row[5]),
-                "RETURN_TYPE": str(row[6]),  
-                "DATE_DE_DEPART": str(row[7]),  
+                "RETURN_TYPE": str(row[6]),
+                "DATE_DE_DEPART": str(row[7]),
                 "DATE_DE_RETOUR": str(row[8]),
                 "CITY_DEPARTURE": str(row[9]),
                 "CITY_ARRIVAL": str(row[10]),
                 "HOR_DEP_RETOUR": str(row[11]),
-                "HOR_RETOUR": str(row[12]),  
-                "FLIGHT_DURATION_DEPARTURE": str(row[13]),   
-                "FLIGHT_DURATION_RETURN": str(row[14]),  
-                "SEASON": str(row[15]),      
+                "HOR_RETOUR": str(row[12]),
+                "FLIGHT_DURATION_DEPARTURE": str(row[13]),
+                "FLIGHT_DURATION_RETURN": str(row[14]),
+                "SEASON": str(row[15]),
                 "DEPARTURE_DAY_TYPE": str(row[16]),
                 "ARRIVAL_DAY_TYPE": str(row[17]),
                 "PRICE_CATEGORY": str(row[18]),
@@ -146,12 +149,14 @@ def get_data():
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
+
 # Load CSV data into memory
-csv_data = pd.read_csv('/home/ayoub/Airline_project/ARILINE_DATA.csv')
+csv_data = pd.read_csv('ARILINE_DATA.csv')
+
 
 @app.route('/data', methods=['GET'])
-def get_data():
-    rows = int(request.args.get('rows', len(csv_data)))
+def get_data_mock():
+    rows = 1400
     selected_features = request.args.get('features', None)
 
     filtered_data = csv_data.head(rows)
@@ -161,5 +166,6 @@ def get_data():
 
     return jsonify(filtered_data.to_dict(orient='records'))
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

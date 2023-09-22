@@ -27,6 +27,7 @@ services:
       dockerfile: DockerfileProducer
     depends_on:
       - kafka
+      - flask-server
     env_file:
       - .env
     networks:
@@ -39,11 +40,11 @@ services:
       dockerfile: DockerfileConsumer
     depends_on:
       - kafka
-      - flask-server
     env_file:
       - .env
     networks:
       - mynetwork
+
     
 
   flask-server:
@@ -60,7 +61,14 @@ services:
     networks:
       - mynetwork
       
-  
+  nextjs-app:
+    build:
+      context: ./UI
+      dockerfile: DockerfileUi
+    ports:
+      - "3000:3000" 
+    networks:
+      - mynetwork
 
     
       

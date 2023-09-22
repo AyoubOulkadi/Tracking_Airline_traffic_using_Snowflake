@@ -5,9 +5,11 @@ import time
 import pandas as pd
 import os
 from dotenv import load_dotenv
-load_dotenv()
-url = 'http://127.0.0.1:5000/data?rows=1400'  
 
+load_dotenv()
+FLASK_HOST = os.getenv("FLASK_SERVER_HOST")
+url = 'http://' + FLASK_HOST + ':5000/data'
+print(url)
 response = requests.get(url)
 
 if response.status_code == 200:
@@ -26,19 +28,21 @@ KAFKA_TOPIC = 'port-data'
 # Create a KafkaProducer instance
 producer = kafka.KafkaProducer(
     bootstrap_servers=KAFKA_BROKER,
-    key_serializer=lambda k: k.encode('utf-8'), 
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')  
+    key_serializer=lambda k: k.encode('utf-8'),
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 data_for_dataframe = []
 
+
 def send_data_to_kafka():
     for index, message in enumerate(data):
-        key = f"record_{index}"  
+        key = f"record_{index}"
         print(f"Sending: Key={key}, Value={message}")
         producer.send(KAFKA_TOPIC, key=key, value=message)
-        
+
         # Add the message to the list for DataFrame
         data_for_dataframe.append(message)
+
 
 if __name__ == "__main__":
     try:
