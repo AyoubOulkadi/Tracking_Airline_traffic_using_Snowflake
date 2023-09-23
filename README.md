@@ -57,4 +57,4 @@ We can see that the connection between PowerBI and Snwoflake had been done succe
 
 <a target="_blank" href="https://imageupload.io/LK4skyIq9l20TbV"><img  src="https://imageupload.io/ib/W2FlOQuMIrcFv4Z_1693915940.jpg" alt="connection avec POWERBI aprs DA.JPG"/></a>
 <h3>Finally we will visualize our data in PowerBi Dashboard </h3>
-<a target="_blank" href="https://imageupload.io/9U3dRKoNNQ2MlLV"><img  src="https://imageupload.io/ib/othJdnSRYgRvZ0p_1695468402.jpg" alt="Data.JPG"/></a>
+<a target="_blank" href="https://imageupload.io/XL8fn3ty6PNyp2C"><img  src="https://imageupload.io/ib/368SqRZ4DeBSbid_1695474531.jpg" alt="Data.JPG"/></a>
