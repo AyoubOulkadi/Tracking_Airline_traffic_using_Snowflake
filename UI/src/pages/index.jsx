@@ -1,38 +1,38 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const API_URL = 'http://localhost:5000'; // Replace with your Flask API base URL
+const API_URL = "http://nextjs-app:5000"; // Replace with your Flask API base URL
 
 const airlineOptions = [
-  'JetBlue Airways',
-  'Delta Air Lines',
-  'Cathay Pacific',
-  'ANA - All Nippon Airways',
-  'China Eastern Airlines',
-  'Etihad Airways',
-  'Ryanair',
-  'Qatar Airways',
-  'Qantas',
-  'United Airlines',
-  'Alitalia',
-  'American Airlines',
-  'Emirates',
-  'Japan Airlines',
-  'Turkish Airlines',
-  'Singapore Airlines',
-  'Air Canada',
-  'Finnair',
-  'Virgin Atlantic',
-  'Royal Air Maroc',
-  'KLM Royal Dutch Airlines',
-  'Southwest Airlines',
-  'Air France',
-  'Lufthansa',
-  'British Airways',
-  'AirAsia',
+  "JetBlue Airways",
+  "Delta Air Lines",
+  "Cathay Pacific",
+  "ANA - All Nippon Airways",
+  "China Eastern Airlines",
+  "Etihad Airways",
+  "Ryanair",
+  "Qatar Airways",
+  "Qantas",
+  "United Airlines",
+  "Alitalia",
+  "American Airlines",
+  "Emirates",
+  "Japan Airlines",
+  "Turkish Airlines",
+  "Singapore Airlines",
+  "Air Canada",
+  "Finnair",
+  "Virgin Atlantic",
+  "Royal Air Maroc",
+  "KLM Royal Dutch Airlines",
+  "Southwest Airlines",
+  "Air France",
+  "Lufthansa",
+  "British Airways",
+  "AirAsia",
 ];
 
-const seasonOptions = ['Summer', 'Spring', 'Winter'];
+const seasonOptions = ["Summer", "Spring", "Winter"];
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -96,7 +96,7 @@ export default function Home() {
       name="aller_type"
       className="form-input rounded-md px-2 py-1 w-1/2 mx-auto"
       onChange={handleFilterChange}
-      value={filters.aller_type || ''}
+      value={filters.aller_type || ""}
     >
       <option value="">Select Airline Type</option>
       {airlineOptions.map((option) => (
@@ -114,7 +114,7 @@ export default function Home() {
       name="return_type"
       className="form-input rounded-md px-2 py-1 w-1/2 mx-auto"
       onChange={handleFilterChange}
-      value={filters.return_type || ''}
+      value={filters.return_type || ""}
     >
       <option value="">Select Return Type</option>
       {airlineOptions.map((option) => (
@@ -132,7 +132,7 @@ export default function Home() {
       name="season"
       className="form-input rounded-md px-2 py-1 w-1/2 mx-auto"
       onChange={handleFilterChange}
-      value={filters.season || ''}
+      value={filters.season || ""}
     >
       <option value="">Select Season</option>
       {seasonOptions.map((option) => (
@@ -176,7 +176,7 @@ export default function Home() {
           key={i}
           onClick={() => onPageChange(i)}
           className={`mx-1 ${
-            currentPage === i ? 'bg-blue-500 px-1 rounded text-white' : ''
+            currentPage === i ? "bg-blue-500 px-1 rounded text-white" : ""
           }`}
         >
           {i}
@@ -199,7 +199,9 @@ export default function Home() {
       );
     }
 
-    return <div className="flex justify-center space-x-4 mt-4">{pageLinks}</div>;
+    return (
+      <div className="flex justify-center space-x-4 mt-4">{pageLinks}</div>
+    );
   };
 
   return (
@@ -222,7 +224,7 @@ export default function Home() {
                 className="form-input rounded-md px-3 py-2 w-1/2 mx-auto"
                 placeholder="Min Price"
                 onChange={handleFilterChange}
-                value={filters.min_price || ''}
+                value={filters.min_price || ""}
               />
             </div>
             <div className="form-group flex items-center">
@@ -233,7 +235,7 @@ export default function Home() {
                 className="form-input rounded-md px-3 py-2 w-1/2 mx-auto"
                 placeholder="Max Price"
                 onChange={handleFilterChange}
-                value={filters.max_price || ''}
+                value={filters.max_price || ""}
               />
             </div>
             <div className="form-group flex items-center">
@@ -263,7 +265,7 @@ export default function Home() {
           </thead>
           <tbody>
             {data?.map((row, index) => (
-              <tr key={index} className='even:bg-slate-100'>
+              <tr key={index} className="even:bg-slate-100">
                 <td className="px-4 py-2">{row.AIRLINE_ALLER}</td>
                 <td className="px-4 py-2">{row.AIRLINE_RETOUR}</td>
                 <td className="px-4 py-2">{row.PRICE}</td>

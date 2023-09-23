@@ -67,6 +67,10 @@ services:
       dockerfile: DockerfileUi
     ports:
       - "3000:3000" 
+    depends_on:
+      - flask-server
+    env_file:
+      - .env
     networks:
       - mynetwork
 
