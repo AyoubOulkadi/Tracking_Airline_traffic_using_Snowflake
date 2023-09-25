@@ -56,5 +56,9 @@ The transformed data is exported from Snowflake and integrated with Power BI.
 We can see that the connection between PowerBI and Snwoflake had been done successfully 
 
 <a target="_blank" href="https://imageupload.io/LK4skyIq9l20TbV"><img  src="https://imageupload.io/ib/W2FlOQuMIrcFv4Z_1693915940.jpg" alt="connection avec POWERBI aprs DA.JPG"/></a>
-<h3>Finally we will visualize our data in PowerBi Dashboard </h3>
+<h3> We will visualize our data in PowerBi Dashboard </h3>
 <a target="_blank" href="https://imageupload.io/XL8fn3ty6PNyp2C"><img  src="https://imageupload.io/ib/368SqRZ4DeBSbid_1695474531.jpg" alt="Data.JPG"/></a>
+
+<h3> Finally here is a picture of our web UI  </h3>
+<a target="_blank" href="https://imageupload.io/wMpY7KYIqHvJfnv"><img  src="https://imageupload.io/ib/Sdqk6Lj2koh74cz_1695662966.jpeg" alt="WhatsApp Image 2023-09-25 at 18.27.44.jpeg"/</a>
+
