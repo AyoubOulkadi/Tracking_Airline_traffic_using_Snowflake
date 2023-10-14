@@ -4,8 +4,7 @@
 This project revolves around building a data pipeline that efficiently processes, stores, transforms, and visualizes data. It utilizes a Flask-based API for data retrieval and a combination of AWS S3, Snowflake, and Power BI for data storage, transformation, and visualization.
 
 <h2>Project architecture </h2>
-<a target="_blank" href="https://imageupload.io/5XfTea2gR44sBBM"><img  src="https://imageupload.io/ib/pph8frXS5UekegP_1695198757.jpg" alt="arc.JPG"/></a>
-
+<a target="_blank" href="https://imageupload.io/WYD79mdWD4ApDhz"><img  src="https://imageupload.io/ib/Ke6Ji9oMGxJdZsC_1697310755.png" alt="Data Architecture for Airline project .png"/></a>
 <h2> 1. Flask API </h2>
 A Flask API is developed to handle HTTP requests.
 This API exposes endpoints for data retrieval and processing.
