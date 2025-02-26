@@ -1,4 +1,4 @@
-﻿# Tracking_Airline_traffic_using_Snowflake
+﻿# Tracking Airline traffic using Snowflake
 <h2>Overview</h2>
 
 This project revolves around building a data pipeline that efficiently processes, stores, transforms, and visualizes data. It utilizes a Flask-based API for data retrieval and a combination of AWS S3, Snowflake, and Power BI for data storage, transformation, and visualization.
